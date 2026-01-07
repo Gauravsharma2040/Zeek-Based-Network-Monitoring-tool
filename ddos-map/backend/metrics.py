@@ -6,7 +6,6 @@ class StreamMetrics:
         self.total_events = 0
         self.ddos_events = 0
         self.normal_events = 0
-
         self.window_seconds = window_seconds
         self.timestamps = deque()
 
