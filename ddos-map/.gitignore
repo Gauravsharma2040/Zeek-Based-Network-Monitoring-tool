@@ -26,7 +26,7 @@ pip-wheel-metadata/
 # FastAPI / Uvicorn
 # =========================
 *.log
-
+*.mmdb
 # =========================
 # Data / Datasets
 # =========================
