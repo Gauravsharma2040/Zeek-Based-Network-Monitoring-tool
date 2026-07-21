@@ -1,3 +1,8 @@
 fastapi
 uvicorn
 pandas
+python-jose[cryptography]
+websockets
+geoip2
+requests
+openai

@@ -1,7 +1,7 @@
 import asyncio
 import websockets
 from state import ingest_queue
-CLOUDFLARE_WS = "wss://covers-known-virginia-brandon.trycloudflare.com/ws"
+CLOUDFLARE_WS = "wss://.trycloudflare.com/ws"
 async def cloudflare_listener():
     while True:
         try:

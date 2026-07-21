@@ -1,42 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
   <meta charset="UTF-8" />
-  <title>Real-Time Network Metrics</title>
+  <title>Real-Time Network Threat Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
   <script type="module" src="/main.js"></script>
-  <style>
-    body {
-      font-family: system-ui, sans-serif;
-      padding: 2rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-
-    .card {
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .value {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-  </style>
 </head>
-
 <body>
   <header>
     <h1>Real-Time Network Threat Dashboard</h1>
-    <p>Live streaming metrics & threat visualization</p>
+    <p>Live streaming metrics & threat visualization <span id="status" data-state="offline">Connecting...</span></p>
+    <button id="demo-button" type="button">Run showcase demo</button>
   </header>
 
   <main>
@@ -57,10 +31,26 @@
         <span>Events / Sec</span>
         <strong id="eps">0</strong>
       </div>
+      <div class="card warning">
+        <span>Usage anomalies</span>
+        <strong id="anomaly">0</strong>
+      </div>
+      <div class="card model">
+        <span>Behavior anomalies</span>
+        <strong id="ml-anomaly">0</strong>
+      </div>
+      <div class="protocols" id="protocols">No traffic yet</div>
+      <div class="protocols" id="model-status">Baseline learning: waiting for events</div>
+      <article class="insight" aria-live="polite">
+        <span class="eyebrow">Latest investigation</span>
+        <strong id="incident-title">Waiting for network activity</strong>
+        <p id="incident-summary">Run the showcase demo or connect a Zeek sensor to begin.</p>
+        <button id="explain-button" type="button" disabled>Explain with AI</button>
+        <p id="ai-explanation" class="ai-explanation"></p>
+      </article>
     </section>
 
-    <section id="map"></section>
+    <section id="analytics"><canvas id="analytics-chart" style="width:100%;height:400px;"></canvas></section>
   </main>
 </body>
-
 </html>
